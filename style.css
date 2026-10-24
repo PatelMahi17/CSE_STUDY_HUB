@@ -1,0 +1,1389 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base Colors for Dark Theme */
+:root {
+  --primary-color: #20c997; /* Teal Green (stays vibrant accent) */
+  --secondary-color: #bbbbbb; /* Lighter Gray for secondary text */
+  --dark-color: #f8f9fa; /* Light text color for general use */
+  --light-color: #1a1a2e; /* Deep dark blue background */
+  --white-color: #0d0d1a; /* Even darker background for cards/sections */
+  --accent-blue: #007bff; /* Bright Blue (stays vibrant) */
+  --accent-purple: #9c27b0; /* Deeper Purple */
+  --accent-green: #4caf50; /* Medium Green */
+  --link-hover-color: #66b2ff; /* Lighter Blue for link hover */
+  --animation-speed: 0.3s;
+  --border-color-light: #33334d; /* Light border for dark elements */
+  --shadow-color-dark: rgba(0, 0, 0, 0.4); /* Darker shadows */
+
+  /* New/Enhanced colors for quick link cards on homepage */
+  --card-bg-blue: #1e3a5f; /* Deeper blue */
+  --card-bg-green: #1e5f3a; /* Deeper green */
+  --card-bg-purple: #3a1e5f; /* Deeper purple */
+
+  /* Colors for stats section */
+  --stat-bg: #2a2a47; /* Dark background for stat items */
+  --stat-border: #4a4a6e; /* Border for stat items */
+  --stat-number-color: var(--primary-color);
+  --stat-label-color: var(--secondary-color);
+
+  /* Homepage text colors (retained) */
+  --hero-title-color: #e0f7fa;
+  --hero-description-color: #a7d9e7;
+  --overview-heading-color: var(--primary-color);
+  --overview-text-color: #c9e6e0;
+
+  /* NEW: Gradient colors */
+  --gradient-one: rgb(212, 179, 14); /*Yellow */
+  --gradient-two: #610807; /* Red */
+  --gradient-three: rgb(237, 100, 100); /* Orange */
+  --gradient-four: #43bbc4; /* Blue */
+
+  /* NEW: BRIGHT Solid colors for Categories cards */
+  --cat-color-1: #FF6347; /* Tomato */
+  --cat-color-2: #4682B4; /* SteelBlue */
+  --cat-color-3: #FFD700; /* Gold */
+  --cat-color-4: #ADFF2F; /* GreenYellow */
+  --cat-color-5: #BA55D3; /* MediumOrchid */
+  --cat-color-6: #00CED1; /* DarkTurquoise */
+  --cat-color-7: #FF69B4; /* HotPink */
+  --cat-color-8: #7B68EE; /* MediumSlateBlue */
+  --cat-color-9: #3CB371; /* MediumSeaGreen */
+  --cat-color-10: #FF4500; /* OrangeRed */
+  --cat-color-11: #1E90FF; /* DodgerBlue */
+  --cat-color-12: #DA70D6; /* Orchid */
+  --cat-color-13: #9ACD32; /* YellowGreen */
+  --cat-color-14: #8A2BE2; /* BlueViolet */
+  --cat-color-15: #053d21; /* SpringGreen */
+
+  /* UPDATED: Darker Icon Colors for Categories (contrasting with bright card backgrounds) */
+  --icon-color-1: #8B0000; /* Dark Red */
+  --icon-color-2: #191970; /* Midnight Blue */
+  --icon-color-3: #8B8B00; /* Dark Yellow/Olive */
+  --icon-color-4: #228B22; /* Forest Green */
+  --icon-color-5: #4B0082; /* Indigo */
+  --icon-color-6: #008B8B; /* Dark Cyan */
+  --icon-color-7: #8B008B; /* Dark Magenta */
+  --icon-color-8: #483D8B; /* Dark Slate Blue */
+  --icon-color-9: #006400; /* Dark Green */
+  --icon-color-10: #A0522D; /* Sienna */
+  --icon-color-11: #00008B; /* Dark Blue */
+  --icon-color-12: #6A5ACD; /* Slate Blue */
+  --icon-color-13: #556B2F; /* Dark Olive Green */
+  --icon-color-14: #4682B4; /* Steel Blue (reused, but darker tone) */
+  --icon-color-15: #2F4F4F; /* Dark Slate Gray */
+
+  /* NEW: Colors for Resource Boxes */
+  --resource-bg-1: #03264a; /* Dark Blue Grey - Python */
+  --resource-bg-2: #5b0539; /* Slightly Lighter Blue Grey - DSA */
+  --resource-bg-3: #043433; /* Dark Green - OS */
+  --resource-bg-4: #652e05; /* Dark Blue - SQL */
+  --resource-bg-5: #2b083a; /* Dark Purple - Networking */
+  --resource-bg-6: #d41010; /* Dark Orange - Design Patterns */
+  --resource-bg-7: #320803; /* Dark Red - Web Dev */
+  --resource-bg-8: #870cf4; /* Dark Teal - ML */
+  --resource-bg-9: #f39c12; /* Dark Yellow/Gold - Cloud */
+  --resource-bg-10: #650c0c; /* Darker Grey - Cybersecurity */
+
+  /* NEW: Icon Color for Resources (Light for dark backgrounds) */
+  --icon-color-resource: #eee;
+
+  /* NEW: Form Specific Colors */
+  --form-bg: #1f1f3a; /* Slightly lighter than --light-color */
+  --input-bg: #2a2a47; /* Dark input background */
+  --input-border: #4a4a6e; /* Input border color */
+  --input-text: var(--dark-color); /* Light text in inputs */
+  --error-color: #e74c3c; /* Red for errors */
+  --success-color: var(--primary-color); /* Green for success */
+}
+
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-color); /* Deep dark blue background */
+  color: var(--dark-color); /* Light text color */
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-blue);
+  transition: color var(--animation-speed) ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header & Navigation */
+header {
+  background-color: var(--white-color); /* Darker background for header */
+  color: var(--dark-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px var(--shadow-color-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* NEW: Gradient for Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--gradient-one), var(--gradient-two));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for non-webkit browsers */
+  transition: transform var(--animation-speed) ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+/* NEW: Gradient for Nav Links */
+.nav-links a {
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  transition: transform var(--animation-speed) ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: var(--primary-color); /* Underline color, can also be gradient */
+  transition: width var(--animation-speed) ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+  background: var(--link-hover-color); /* Hover underline color */
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  transition: background-color var(--animation-speed) ease, transform var(--animation-speed) ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px var(--shadow-color-dark);
+}
+
+.btn:hover {
+  background-color: #18a277;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px var(--shadow-color-dark);
+}
+
+.btn-small {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+  transition: background-color var(--animation-speed) ease, transform var(--animation-speed) ease;
+  border: none;
+  cursor: pointer;
+  color: var(--white-color);
+}
+
+.btn-small:hover {
+  background-color: #8d8d8d;
+  transform: translateY(-1px);
+}
+
+/* Page Content Wrapper */
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Sections - General */
+section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+/* Homepage Specific Styles */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e, #3a1a4a, #1a4a4a, #3a3a1a, #5a1a1a, #1a1a5a, #1a1a2e);
+  background-size: 800% 800%;
+  animation: gradientAnimation 20s ease infinite alternate;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+/* NEW: Gradient for Hero Title */
+.hero-content .hero-title {
+  font-size: 3.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(45deg, var(--gradient-two), var(--gradient-three), var(--gradient-four));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for non-webkit browsers */
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-content .hero-description {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  color: var(--hero-description-color);
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview {
+  background-color: var(--white-color);
+  padding: 4rem 1rem;
+  box-shadow: 0 2px 10px var(--shadow-color-dark);
+}
+
+.overview .overview-heading {
+  color: var(--overview-heading-color);
+}
+
+.overview .overview-text {
+  color: var(--overview-text-color);
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quick-link-card {
+  padding: 1.8rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform var(--animation-speed) ease-in-out, box-shadow var(--animation-speed) ease-in-out, background-color var(--animation-speed) ease;
+  position: relative;
+  overflow: hidden;
+  color: var(--dark-color);
+  box-shadow: 0 4px 8px var(--shadow-color-dark);
+  border: 1px solid var(--border-color-light);
+}
+
+.quick-link-card.card-blue {
+  background-color: var(--card-bg-blue);
+  border-color: #3e5a8f;
+}
+
+.quick-link-card.card-blue:hover {
+  background-color: #2e4a6f;
+}
+
+.quick-link-card.card-green {
+  background-color: var(--card-bg-green);
+  border-color: #3e8f5a;
+}
+
+.quick-link-card.card-green:hover {
+  background-color: #2e6f4a;
+}
+
+.quick-link-card.card-purple {
+  background-color: var(--card-bg-purple);
+  border-color: #5a3e8f;
+}
+
+.quick-link-card.card-purple:hover {
+  background-color: #4a2e6f;
+}
+
+.quick-link-card h3 {
+  color: var(--dark-color);
+  margin-bottom: 0.7rem;
+  font-size: 1.3rem;
+}
+
+.quick-link-card p {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.quick-link-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 16px var(--shadow-color-dark);
+}
+
+.quick-link-card .arrow-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: var(--primary-color);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  transition: transform var(--animation-speed) ease-out;
+  transform: translateX(0);
+}
+
+.quick-link-card:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+.achievements {
+  background-color: var(--white-color);
+  padding: 4rem 1rem;
+  box-shadow: 0 2px 10px var(--shadow-color-dark);
+}
+
+.achievements h2 {
+  color: var(--accent-blue);
+  margin-bottom: 3rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  background-color: var(--stat-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px var(--shadow-color-dark);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--stat-border);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background-color: #3a3a5a;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--stat-number-color);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: var(--stat-label-color);
+}
+
+/* Categories Page Styles */
+.categories-page {
+  background-color: var(--light-color);
+  padding: 4rem 1rem;
+}
+
+.categories-page h2 {
+  color: var(--accent-purple);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.categories-page .category-grid {
+  /* Set to 3 columns, each taking equal fraction of space */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Space between cards */
+  max-width: 1000px; /* Limit the grid width for better aesthetics */
+  margin: 2rem auto; /* Center the grid */
+  /* Ensure each row has enough height to comfortably fit card content */
+  grid-auto-rows: 250px;
+  overflow-x: hidden; /* Prevent horizontal scroll if content overflows */
+  scroll-snap-type: none; /* Disable scroll snapping */
+  padding-bottom: 0;
+}
+
+/* Base style for category cards */
+.categories-page .category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Make card fill its grid cell height */
+
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px var(--shadow-color-dark);
+  transition: transform var(--animation-speed) ease-in-out, box-shadow var(--animation-speed) ease-in-out, background-color var(--animation-speed) ease;
+  text-align: center;
+  color: var(--dark-color);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color-light);
+
+  flex: none; /* Reset any flex item properties that might interfere with grid */
+  scroll-snap-align: none;
+}
+
+/* Individual Solid Colors for Categories (retained) */
+.categories-page .card-programming {
+  background-color: var(--cat-color-1);
+  border-color: color-mix(in srgb, var(--cat-color-1) 80%, black);
+}
+.categories-page .card-dsa {
+  background-color: var(--cat-color-2);
+  border-color: color-mix(in srgb, var(--cat-color-2) 80%, black);
+}
+.categories-page .card-os {
+  background-color: var(--cat-color-3);
+  border-color: color-mix(in srgb, var(--cat-color-3) 80%, black);
+}
+.categories-page .card-dbms {
+  background-color: var(--cat-color-4);
+  border-color: color-mix(in srgb, var(--cat-color-4) 80%, black);
+}
+.categories-page .card-networks {
+  background-color: var(--cat-color-5);
+  border-color: color-mix(in srgb, var(--cat-color-5) 80%, black);
+}
+.categories-page .card-se {
+  background-color: var(--cat-color-6);
+  border-color: color-mix(in srgb, var(--cat-color-6) 80%, black);
+}
+.categories-page .card-webdev {
+  background-color: var(--cat-color-7);
+  border-color: color-mix(in srgb, var(--cat-color-7) 80%, black);
+}
+.categories-page .card-mlai {
+  background-color: var(--cat-color-8);
+  border-color: color-mix(in srgb, var(--cat-color-8) 80%, black);
+}
+.categories-page .card-cloud {
+  background-color: var(--cat-color-9);
+  border-color: color-mix(in srgb, var(--cat-color-9) 80%, black);
+}
+.categories-page .card-cybersecurity {
+  background-color: var(--cat-color-10);
+  border-color: color-mix(in srgb, var(--cat-color-10) 80%, black);
+}
+.categories-page .card-blockchain {
+  background-color: var(--cat-color-11);
+  border-color: color-mix(in srgb, var(--cat-color-11) 80%, black);
+}
+.categories-page .card-iot {
+  background-color: var(--cat-color-12);
+  border-color: color-mix(in srgb, var(--cat-color-12) 80%, black);
+}
+.categories-page .card-arvr {
+  background-color: var(--cat-color-13);
+  border-color: color-mix(in srgb, var(--cat-color-13) 80%, black);
+}
+.categories-page .card-quantum {
+  background-color: var(--cat-color-14);
+  border-color: color-mix(in srgb, var(--cat-color-14) 80%, black);
+}
+.categories-page .card-hci {
+  background-color: var(--cat-color-15);
+  border-color: color-mix(in srgb, var(--cat-color-15) 80%, black);
+}
+
+.categories-page .category-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 20px var(--shadow-color-dark);
+}
+
+/* Adjust hover background color slightly for solid colors - making them slightly darker on hover */
+.categories-page .card-programming:hover {
+  background-color: color-mix(in srgb, var(--cat-color-1) 85%, black);
+}
+.categories-page .card-dsa:hover {
+  background-color: color-mix(in srgb, var(--cat-color-2) 85%, black);
+}
+.categories-page .card-os:hover {
+  background-color: color-mix(in srgb, var(--cat-color-3) 85%, black);
+}
+.categories-page .card-dbms:hover {
+  background-color: color-mix(in srgb, var(--cat-color-4) 85%, black);
+}
+.categories-page .card-networks:hover {
+  background-color: color-mix(in srgb, var(--cat-color-5) 85%, black);
+}
+.categories-page .card-se:hover {
+  background-color: color-mix(in srgb, var(--cat-color-6) 85%, black);
+}
+.categories-page .card-webdev:hover {
+  background-color: color-mix(in srgb, var(--cat-color-7) 85%, black);
+}
+.categories-page .card-mlai:hover {
+  background-color: color-mix(in srgb, var(--cat-color-8) 85%, black);
+}
+.categories-page .card-cloud:hover {
+  background-color: color-mix(in srgb, var(--cat-color-9) 85%, black);
+}
+.categories-page .card-cybersecurity:hover {
+  background-color: color-mix(in srgb, var(--cat-color-10) 85%, black);
+}
+.categories-page .card-blockchain:hover {
+  background-color: color-mix(in srgb, var(--cat-color-11) 85%, black);
+}
+.categories-page .card-iot:hover {
+  background-color: color-mix(in srgb, var(--cat-color-12) 85%, black);
+}
+.categories-page .card-arvr:hover {
+  background-color: color-mix(in srgb, var(--cat-color-13) 85%, black);
+}
+.categories-page .card-quantum:hover {
+  background-color: color-mix(in srgb, var(--cat-color-14) 85%, black);
+}
+.categories-page .card-hci:hover {
+  background-color: color-mix(in srgb, var(--cat-color-15) 85%, black);
+}
+
+.categories-page .category-card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+  font-size: 1.4rem;
+  transition: color var(--animation-speed) ease;
+  line-height: 1.2;
+}
+
+.categories-page .category-card:hover h3 {
+  color: var(--primary-color);
+}
+
+.categories-page .category-card p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--dark-color);
+  transition: color var(--animation-speed) ease;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.categories-page .category-card:hover p {
+  color: #e0e0e0;
+}
+
+/* Font Awesome Icons for Subjects - Base Style */
+.categories-page .category-card .icon {
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
+  transition: color var(--animation-speed) ease, transform var(--animation-speed) ease;
+  display: block;
+}
+
+/* Specific Colors for Each Icon (retained) */
+.categories-page .card-programming .icon {
+  color: var(--icon-color-1);
+}
+.categories-page .card-dsa .icon {
+  color: var(--icon-color-2);
+}
+.categories-page .card-os .icon {
+  color: var(--icon-color-3);
+}
+.categories-page .card-dbms .icon {
+  color: var(--icon-color-4);
+}
+.categories-page .card-networks .icon {
+  color: var(--icon-color-5);
+}
+.categories-page .card-se .icon {
+  color: var(--icon-color-6);
+}
+.categories-page .card-webdev .icon {
+  color: var(--icon-color-7);
+}
+.categories-page .card-mlai .icon {
+  color: var(--icon-color-8);
+}
+.categories-page .card-cloud .icon {
+  color: var(--icon-color-9);
+}
+.categories-page .card-cybersecurity .icon {
+  color: var(--icon-color-10);
+}
+.categories-page .card-blockchain .icon {
+  color: var(--icon-color-11);
+}
+.categories-page .card-iot .icon {
+  color: var(--icon-color-12);
+}
+.categories-page .card-arvr .icon {
+  color: var(--icon-color-13);
+}
+.categories-page .card-quantum .icon {
+  color: var(--icon-color-14);
+}
+.categories-page .card-hci .icon {
+  color: var(--icon-color-15);
+}
+
+/* Icon Hover Effect - Making them slightly brighter/different on hover */
+.categories-page .category-card:hover .icon {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+}
+
+/* Resources Page Styles (Updated for links to new pages) */
+.resources-page {
+  background-color: var(--light-color);
+  padding: 4rem 1rem;
+}
+
+.resources-page h2 {
+  color: var(--accent-green);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Styling for resource items */
+.resources-page .resource-item {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color-dark);
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 6px solid transparent; /* Base for hover effect */
+  transition: border-left-color var(--animation-speed) ease, transform var(--animation-speed) ease, background-color var(--animation-speed) ease;
+  /* NEW: Flexbox to align icon and content */
+  display: flex;
+  align-items: flex-start; /* Align icon and text to the top */
+  gap: 1.5rem; /* Space between icon and text content */
+}
+
+/* Individual Background Colors for Resource Items */
+.resources-page .resource-item.resource-bg-1 {
+  background-color: var(--resource-bg-1);
+  border-color: color-mix(in srgb, var(--resource-bg-1) 80%, white);
+}
+.resources-page .resource-item.resource-bg-2 {
+  background-color: var(--resource-bg-2);
+  border-color: color-mix(in srgb, var(--resource-bg-2) 80%, white);
+}
+.resources-page .resource-item.resource-bg-3 {
+  background-color: var(--resource-bg-3);
+  border-color: color-mix(in srgb, var(--resource-bg-3) 80%, white);
+}
+.resources-page .resource-item.resource-bg-4 {
+  background-color: var(--resource-bg-4);
+  border-color: color-mix(in srgb, var(--resource-bg-4) 80%, white);
+}
+.resources-page .resource-item.resource-bg-5 {
+  background-color: var(--resource-bg-5);
+  border-color: color-mix(in srgb, var(--resource-bg-5) 80%, white);
+}
+.resources-page .resource-item.resource-bg-6 {
+  background-color: var(--resource-bg-6);
+  border-color: color-mix(in srgb, var(--resource-bg-6) 80%, white);
+}
+.resources-page .resource-item.resource-bg-7 {
+  background-color: var(--resource-bg-7);
+  border-color: color-mix(in srgb, var(--resource-bg-7) 80%, white);
+}
+.resources-page .resource-item.resource-bg-8 {
+  background-color: var(--resource-bg-8);
+  border-color: color-mix(in srgb, var(--resource-bg-8) 80%, white);
+}
+.resources-page .resource-item.resource-bg-9 {
+  background-color: var(--resource-bg-9);
+  border-color: color-mix(in srgb, var(--resource-bg-9) 80%, white);
+}
+.resources-page .resource-item.resource-bg-10 {
+  background-color: var(--resource-bg-10);
+  border-color: color-mix(in srgb, var(--resource-bg-10) 80%, white);
+}
+
+/* Hover effect for resource items */
+.resources-page .resource-item:hover {
+  border-left-color: var(--primary-color); /* Primary accent color on hover */
+  transform: translateX(5px);
+  /* Slightly lighten the background on hover */
+  filter: brightness(1.1);
+}
+
+.resources-page .resource-item h3 {
+  margin-bottom: 0.8rem;
+  color: var(--dark-color); /* Light text color for titles */
+  font-size: 1.3rem;
+}
+
+.resources-page .resource-item p {
+  color: var(--secondary-color); /* Slightly darker secondary color for descriptions */
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+/* NEW: Icon styling for resource items */
+.resources-page .resource-item .icon-resource {
+  font-size: 2.5rem; /* Larger icon size */
+  color: var(--icon-color-resource); /* Light color for the icon */
+  min-width: 2.5rem; /* Ensure icon takes consistent space */
+  text-align: center;
+  transition: transform var(--animation-speed) ease;
+}
+
+.resources-page .resource-item:hover .icon-resource {
+  transform: scale(1.1) rotate(5deg); /* Slight animation on icon hover */
+  filter: brightness(1.2);
+}
+
+/* NEW: Style for the anchor tag that wraps the resource item content */
+.resources-page .resource-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Allow link content to take available space */
+  color: inherit; /* Inherit color from parent .resource-item */
+  text-align: left;
+  position: relative; /* For arrow positioning */
+  padding-right: 30px; /* Space for the arrow */
+}
+
+.resources-page .resource-link:hover {
+  color: inherit; /* Maintain color */
+}
+
+.resources-page .resource-link h3,
+.resources-page .resource-link p {
+  margin: 0; /* Reset margins from default */
+  color: inherit; /* Ensure they inherit the color from the main resource item */
+}
+
+.resources-page .resource-link p {
+  margin-top: 0.5rem;
+}
+
+/* Arrow for "View Details" */
+.resources-page .view-details-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.resources-page .resource-link:hover .view-details-arrow {
+  transform: translateY(-50%) translateX(5px); /* Move arrow slightly on hover */
+  color: var(--link-hover-color);
+}
+
+/* --- NEW STYLES for individual Resource Detail Pages --- */
+.resource-detail-page {
+  background-color: var(--white-color); /* Darker background for detail pages */
+  padding: 4rem 1rem;
+  text-align: left;
+  min-height: 80vh; /* Ensure page has some height */
+  box-shadow: 0 2px 10px var(--shadow-color-dark);
+}
+
+.resource-detail-page .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.resource-detail-page .back-link:hover {
+  color: var(--link-hover-color);
+  transform: translateX(-5px);
+}
+
+.resource-detail-page .back-link i {
+  font-size: 1.2rem;
+}
+
+.resource-detail-page .detail-page-title {
+  color: var(--accent-green);
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.resource-detail-page .resource-intro-text {
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.resource-detail-page .detail-section {
+  background-color: var(--light-color); /* Lighter dark background for sections */
+  padding: 2.5rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 10px var(--shadow-color-dark);
+  border: 1px solid var(--border-color-light);
+}
+
+.resource-detail-page .detail-section h3 {
+  color: var(--primary-color);
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.resource-detail-page .detail-section h3 i {
+  font-size: 1.5rem;
+  color: var(--accent-blue);
+}
+
+.resource-detail-page .detail-section p {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.resource-detail-page .detail-section ul {
+  list-style: disc; /* Use discs for lists */
+  margin-left: 25px;
+}
+
+.resource-detail-page .detail-section li {
+  color: var(--secondary-color);
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.resource-detail-page .detail-section li strong {
+  color: var(--dark-color);
+}
+
+.resource-detail-page .detail-section a {
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+.resource-detail-page .detail-section a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+/* About Page Styles */
+.about-page {
+  background-color: var(--white-color);
+  padding: 4rem 1rem;
+  text-align: left;
+  box-shadow: 0 2px 10px var(--shadow-color-dark);
+}
+
+.about-page h2,
+.about-page h3 {
+  color: var(--accent-purple);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-page h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.about-page p {
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--secondary-color);
+}
+
+.about-page ul {
+  list-style-type: '🌟 ';
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-page li {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--secondary-color);
+}
+
+/* Contact Page Styles */
+.contact-page {
+  background-color: var(--light-color);
+  padding: 4rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px var(--shadow-color-dark);
+}
+
+.contact-page h2 {
+  color: var(--accent-green);
+  margin-bottom: 1.5rem; /* Adjusted for intro text */
+}
+
+.contact-page .contact-intro-text {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.15rem;
+  color: var(--secondary-color);
+}
+
+.contact-info {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-info .info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+
+.contact-info .info-item i {
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+  color: var(--accent-green);
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* No need for ::before content if using Font Awesome classes directly */
+.contact-page .social-links {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-page .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3a3a3a;
+  color: var(--accent-blue);
+  font-size: 2rem;
+  transition: background-color var(--animation-speed) ease, transform var(--animation-speed) ease;
+  box-shadow: 0 2px 5px var(--shadow-color-dark);
+}
+
+.contact-page .social-icon:hover {
+  background-color: #4a4a6e;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* NEW: Contact Form Styles */
+.contact-form-container {
+  background-color: var(--form-bg);
+  padding: 3rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto 4rem auto; /* Space below form */
+  box-shadow: 0 6px 15px var(--shadow-color-dark);
+  border: 1px solid var(--border-color-light);
+  text-align: left; /* Align form content left */
+}
+
+.contact-form-container h3 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical; /* Allow vertical resizing for textarea */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.3); /* Soft glow */
+}
+
+/* Placeholder styling */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.7;
+}
+
+.contact-form .btn {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+/* Validation Message Styles */
+.contact-form .error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 0.2rem; /* Decreased space */
+  text-align: right;
+  height: 1.2em;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.contact-form .error-message.active {
+  opacity: 1;
+}
+
+.contact-form .form-submission-message {
+  margin-top: 0.5rem; /* Decreased space */
+  font-size: 1.1rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.contact-form .form-submission-message.success {
+  color: var(--success-color);
+  opacity: 1;
+}
+
+.contact-form .form-submission-message.error {
+  color: var(--error-color);
+  opacity: 1;
+}
+
+/* Login Contact Info Styling (if still needed) */
+.login-contact-info {
+  background-color: var(--white-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px var(--shadow-color-dark);
+  border: 1px solid var(--border-color-light);
+}
+
+.login-contact-info h3 {
+  color: var(--accent-blue);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.login-contact-info p {
+  color: var(--secondary-color);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.login-contact-info p a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.login-contact-info .small-text {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  box-shadow: inset 0 5px 10px var(--shadow-color-dark);
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  .nav-links a {
+    padding: 0.5rem 0;
+    display: block;
+    background-color: #2a2a47;
+    border-radius: 5px;
+  }
+  .nav-links a::after {
+    display: none;
+  }
+  .hero-content .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-content .hero-description {
+    font-size: 1.1rem;
+  }
+  .quick-links,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Categories grid: 2 columns on tablets */
+  .categories-page .category-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    max-width: 700px; /* Adjust max-width for 2 columns */
+    grid-auto-rows: 240px; /* Slightly reduced height for 2 columns */
+  }
+  .categories-page .category-card {
+    padding: 1rem; /* Smaller padding on tablet */
+  }
+  section {
+    padding: 3rem 1rem;
+  }
+  .about-page p,
+  .about-page ul {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-info {
+    gap: 1rem;
+  }
+  /* Adjust resource item layout for small screens */
+  .resources-page .resource-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .resources-page .resource-item .icon-resource {
+    margin-bottom: 0.5rem;
+  }
+  .resources-page .resource-link {
+    padding-right: 0;
+  }
+  .resources-page .view-details-arrow {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+  }
+  /* Resource Detail Page adjustments */
+  .resource-detail-page .detail-page-title {
+    font-size: 2.2rem;
+  }
+  .resource-detail-page .resource-intro-text {
+    font-size: 1rem;
+  }
+  .resource-detail-page .detail-section {
+    padding: 1.5rem;
+  }
+  .resource-detail-page .detail-section h3 {
+    font-size: 1.5rem;
+  }
+  /* Contact form adjustments for mobile */
+  .contact-form-container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-content .hero-description {
+    font-size: 0.95rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  /* Categories grid: 1 column on mobile phones */
+  .categories-page .category-grid {
+    grid-template-columns: 1fr; /* Single column */
+    max-width: 400px; /* Adjust max-width for 1 column */
+    grid-auto-rows: 200px; /* Further reduced height for smaller screens */
+  }
+  .categories-page .category-card {
+    padding: 0.6rem;
+  }
+  .categories-page .category-card .icon {
+    font-size: 2.5rem; /* Smaller icons too */
+  }
+  .categories-page .category-card h3 {
+    font-size: 1.2rem;
+  }
+  .categories-page .category-card p {
+    font-size: 0.85rem;
+  }
+  .stat-number {
+    font-size: 2.2rem;
+  }
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+/* Intersection Observer Animations */
+.pre-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
